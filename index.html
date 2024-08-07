@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
+    <link rel="icon" href="Stan.ico" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -63,11 +64,11 @@
         }
 
         .image-container {
-            margin-bottom: 15px; 
+            margin-bottom: 10px; 
         }
 
         .image-container img {
-            max-width: 100%;
+            max-width: 70%;
             height: auto;
             border-radius: 5px; 
         }
@@ -76,9 +77,9 @@
 <body>
     <div class="login-container">
         <div class="image-container">
-            <img src="NOLogo.png" alt="CDC Web Portal">
+            <img src="NOLogo.png" alt="Call Center Portal">
         </div>
-        <h2>Haltom City Web Portal</h2>
+        <h2>Haltom City Portal</h2>
         <form id="login-form">
             <div class="input-group">
                 <label for="username">Username</label>
@@ -93,9 +94,7 @@
     </div>
     <script>
         const users = [
-            { username: 'Mariano', password: 'Papucho2024', homepage: 'HaltomCity.html' },
-            { username: 'Caro', password: 'Optical123', homepage: 'HaltomCity.html' },
-            { username: 'user1', password: 'user1', homepage: 'Home-User1.html' }
+            { username: 'Mariano', password: 'Papucho2024', homepage: 'HaltomCity.html' }  
         ];
 
         document.getElementById('login-form').addEventListener('submit', function(event) {
@@ -106,6 +105,7 @@
             const authenticatedUser = users.find(user => user.username === username && user.password === password);
 
             if (authenticatedUser) {
+                sessionStorage.setItem('loggedIn', 'true');
                 window.location.href = authenticatedUser.homepage;
             } else {
                 alert('Invalid username or password');

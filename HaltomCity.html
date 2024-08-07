@@ -114,9 +114,9 @@
         .iframe-container {
             position: relative;
             overflow: hidden;
-            width: calc(100% - 10px); /* Full width minus the left and right padding */
-            margin: 0 5px; /* 5px padding on left and right */
-            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            width: calc(100% - 10px);
+            margin: 0 5px; 
+            padding-top: 56.25%; 
         }
         .iframe-container iframe {
             position: absolute;
@@ -129,6 +129,11 @@
     </style>
 </head>
 <body>
+    <script>
+        if (!sessionStorage.getItem('loggedIn')) {
+            window.location.href = 'index.html'; 
+        }
+    </script>
     <header>
         <div class="logo">
             <img src="NOLogo.png" alt="Logo">
@@ -136,7 +141,7 @@
         <nav>
             <div class="menu-toggle" id="menu-toggle">&#9776;</div>
             <div class="menu-content" id="menu-content">
-                <a href="HaltomCity.html">Home</a>
+                <a href="Home.html">Home</a>
                 <div class="dropdown">
                     <a href="#experience">Team Distribution</a>
                     <div class="dropdown-content">
@@ -160,7 +165,7 @@
         </div>
     </div>
     <div class="dropdown">
-        <a href="#workflows">Replinishment</a>
+        <a href="#workflows">Replenishment</a>
         <div class="dropdown-content">
             <a href="workflow1.html">DC2</a>
         </div>
