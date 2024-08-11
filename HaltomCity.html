@@ -14,92 +14,107 @@
             color: #333;
         }
         header {
+            background-color: #fff;
+            padding: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
-            background-color: #fff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        header .logo img {
+        .logo img {
             width: 90px;
             height: 45px;
         }
         nav {
             display: flex;
             align-items: center;
-            position: relative;
-        }
-        header nav a {
-            margin-left: 20px;
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-            position: relative;
-        }
-        header nav a:hover {
-            color: #f05454;
         }
         .menu-toggle {
             display: none;
-            font-size: 24px;
+            font-size: 30px;
             cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
         }
         .menu-content {
             display: flex;
+            align-items: center;
+        }
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 15px;
+            padding: 10px 0;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        nav a.active {
+            border-bottom: 2px solid #f05454;
+        }
+        nav a:hover {
+            background-color: #f05454;
+            color: #ffffff;
+        }
+        .dropdown {
+            position: relative;
         }
         .dropdown-content {
             display: none;
             position: absolute;
-            background-color: #fff;
+            background-color: #ffffff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            z-index: 1;
             flex-direction: column;
+            width: 200px;
+            z-index: 1000;
         }
         .dropdown-content a {
-            padding: 10px;
             color: #333;
+            padding: 10px;
             text-decoration: none;
-            display: block;
             text-align: left;
+            border-bottom: 1px solid #f4f4f9;
         }
         .dropdown-content a:hover {
             background-color: #f4f4f9;
         }
-        .menu-content .dropdown:hover .dropdown-content {
+        .dropdown:hover .dropdown-content {
             display: flex;
         }
-        @media (max-width: 768px) {
-            header {
-                padding: 20px 40px;
+        @media (min-width: 768px) {
+            .menu-content {
+                flex-direction: row;
+                justify-content: flex-end;
             }
+            .menu-toggle {
+                display: none;
+            }
+        }
+        @media (max-width: 767px) {
             .menu-toggle {
                 display: block;
             }
             .menu-content {
                 display: none;
+                flex-direction: column;
                 position: absolute;
-                top: 60px; 
+                top: 60px;
                 right: 0;
                 background-color: #fff;
-                flex-direction: column;
                 width: 100%;
                 text-align: center;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             }
-            .menu-content a {
-                margin: 10px 0;
-                padding: 10px;
-                border-bottom: 1px solid #f4f4f9;
-            }
-            .menu-content a:last-child {
-                border-bottom: none;
-            }
-            .menu-content.show {
+            .menu-content.collapsed {
                 display: flex;
             }
             .dropdown-content {
                 position: relative;
+                width: 100%;
+            }
+            .dropdown-content a {
+                border-bottom: none;
+                padding: 10px 20px;
             }
         }
         @media (max-width: 480px) {
@@ -141,36 +156,25 @@
         <nav>
             <div class="menu-toggle" id="menu-toggle">&#9776;</div>
             <div class="menu-content" id="menu-content">
-                <a href="Home.html">Home</a>
+                <a href="Home.html" class="active">Home</a>
                 <div class="dropdown">
-                    <a href="#experience">Team Distribution</a>
+                    <a href="#workflows">Distribution Center</a>
                     <div class="dropdown-content">
-                        <a href="Brodrick.html">Brodrick</a>
-                        <a href="Cindy.html">Cindy</a>
-                        <a href="Jenna.html">Jenna</a>
-                        <a href="Jolanta.html">Jolanta</a>
-                        <a href="Mayra.html">Mayra</a>
+                        <a href="workflow1.html">DC2</a>
+                        <a href="workflow2.html">DC3</a>
+                        <a href="workflow3.html">DC5</a>
+                        <a href="workflow2.html">DC7</a>
+                        <a href="workflow3.html">DC8</a>
+                        <a href="workflow3.html">DC13</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#workflows">Replenishment</a>
+                    <div class="dropdown-content">
+                        <a href="workflow1.html">DC2</a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="dropdown">
-            <a href="#workflows">Distribution Center</a>
-            <div class="dropdown-content">
-                <a href="workflow1.html">DC2</a>
-                <a href="workflow2.html">DC3</a>
-                <a href="workflow3.html">DC5</a>
-                <a href="workflow2.html">DC7</a>
-                <a href="workflow3.html">DC8</a>
-                <a href="workflow3.html">DC13</a>
-            </div>
-        </div>
-    </div>
-    <div class="dropdown">
-        <a href="#workflows">Replenishment</a>
-        <div class="dropdown-content">
-            <a href="workflow1.html">DC2</a>
-        </div>
-    </div>
-</div>
         </nav>
     </header>
     <h1>Haltom City Dashboard</h1>
@@ -182,11 +186,12 @@
     <script>
         document.getElementById('menu-toggle').addEventListener('click', function() {
             var menuContent = document.getElementById('menu-content');
-            menuContent.classList.toggle('show');
+            menuContent.classList.toggle('collapsed');
         });
     </script>
 </body>
 </html>
+
 
 
 
