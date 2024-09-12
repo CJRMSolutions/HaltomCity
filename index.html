@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Page</title>
-    <link rel="icon" href="Stan.ico" type="image/x-icon">
+    <title>Haltom City</title>
+    <link rel="icon" href="iris.ico" type="image/x-icon">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -27,6 +27,7 @@
 
         h2 {
             margin-bottom: 20px;
+            color: #575655;
         }
 
         .input-group {
@@ -53,7 +54,7 @@
             padding: 10px;
             border: none;
             border-radius: 4px;
-            background-color: #25459c;
+            background-color: #e57f25;
             color: white;
             font-size: 16px;
             cursor: pointer;
@@ -77,9 +78,9 @@
 <body>
     <div class="login-container">
         <div class="image-container">
-            <img src="NOLogo.png" alt="Call Center Portal">
+            <img src="NOLogo.png" alt="IRIS Hub">
         </div>
-        <h2>Haltom City Portal</h2>
+        <h2>Haltom City Hub</h2>
         <form id="login-form">
             <div class="input-group">
                 <label for="username">Username</label>
@@ -93,36 +94,29 @@
         </form>
     </div>
     <script>
-        // Array of users for authentication
         const users = [
-            { username: 'Mariano', password: 'Papucho2024', homepage: 'HaltomCity.html' },
-            { username: 'Brodrick', password: 'Brodrick2024', homepage: 'HaltomCity.html' },
-            { username: 'Jenna', password: 'Jenna2024', homepage: 'HaltomCity.html' },
-            { username: 'Jolanta', password: 'Jolanta2024', homepage: 'HaltomCity.html' },
-            { username: 'Mayra', password: 'Mayra2024', homepage: 'HaltomCity.html' },
-            { username: 'Cedric', password: 'Cedric2024', homepage: 'HaltomCity.html' },
-            { username: 'Edward', password: 'Edward2024', homepage: 'HaltomCity.html' },
+        { username: 'Mariano', password: 'Papucho2024', homepage: 'HaltomCity.html' } ,
+            { username: 'Brodrick', password: 'Brodrick2024', homepage: 'HaltomCity.html' } ,
+            { username: 'Jenna', password: 'Jenna2024', homepage: 'HaltomCity.html' } ,
+            { username: 'Jolanta', password: 'Jolanta2024', homepage: 'HaltomCity.html' } ,
+            { username: 'Mayra', password: 'Mayra2024', homepage: 'HaltomCity.html' } , 
+            { username: 'Cedric', password: 'Cedric2024', homepage: 'HaltomCity.html' } ,
+            { username: 'Edward', password: 'Edward2024', homepage: 'HaltomCity.html' } ,
             { username: 'KisselG', password: 'Spring#2024', homepage: 'HaltomCity.html' },
-            { username: 'OvilioG', password: 'Ovilio#2024', homepage: 'HaltomCity.html' }
+            { username: 'OvilioG', password: 'Ovilio#2024', homepage: 'HaltomCity.html' }    
         ];
 
-        // Function to authenticate the user
-        document.getElementById('login-form').addEventListener('submit', function (e) {
-            e.preventDefault(); // Prevent the form from submitting the default way
-
-            // Get the input values
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            event.preventDefault(); 
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-
-            // Find a matching user
+            
             const authenticatedUser = users.find(user => user.username === username && user.password === password);
 
             if (authenticatedUser) {
-                // Redirect to the user's homepage if authenticated
-                sessionStorage.setItem('loggedIn', 'true'); // Optional, in case you want to track the login session
+                sessionStorage.setItem('loggedIn', 'true');
                 window.location.href = authenticatedUser.homepage;
             } else {
-                // Display an error if authentication fails
                 alert('Invalid username or password');
             }
         });
