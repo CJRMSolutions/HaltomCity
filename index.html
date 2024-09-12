@@ -93,25 +93,40 @@
         </form>
     </div>
     <script>
+        // Array of users for authentication
         const users = [
-            { username: 'Mariano', password: 'Papucho2024', homepage: 'HaltomCity.html' } ,
-            { username: 'Brodrick', password: 'Brodrick2024', homepage: 'HaltomCity.html' } ,
-            { username: 'Jenna', password: 'Jenna2024', homepage: 'HaltomCity.html' } ,
-            { username: 'Jolanta', password: 'Jolanta2024', homepage: 'HaltomCity.html' } ,
-            { username: 'Mayra', password: 'Mayra2024', homepage: 'HaltomCity.html' } , 
-            { username: 'Cedric', password: 'Cedric2024', homepage: 'HaltomCity.html' } ,
-            { username: 'Edward', password: 'Edward2024', homepage: 'HaltomCity.html' } ,
+            { username: 'Mariano', password: 'Papucho2024', homepage: 'HaltomCity.html' },
+            { username: 'Brodrick', password: 'Brodrick2024', homepage: 'HaltomCity.html' },
+            { username: 'Jenna', password: 'Jenna2024', homepage: 'HaltomCity.html' },
+            { username: 'Jolanta', password: 'Jolanta2024', homepage: 'HaltomCity.html' },
+            { username: 'Mayra', password: 'Mayra2024', homepage: 'HaltomCity.html' },
+            { username: 'Cedric', password: 'Cedric2024', homepage: 'HaltomCity.html' },
+            { username: 'Edward', password: 'Edward2024', homepage: 'HaltomCity.html' },
             { username: 'KisselG', password: 'Spring#2024', homepage: 'HaltomCity.html' },
-            { username: 'OvilioG', password: 'Ovilio#2024', homepage: 'HaltomCity.html' }    
+            { username: 'OvilioG', password: 'Ovilio#2024', homepage: 'HaltomCity.html' }
         ];
 
+        // Function to authenticate the user
+        document.getElementById('login-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent the form from submitting the default way
+
+            // Get the input values
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Find a matching user
+            const authenticatedUser = users.find(user => user.username === username && user.password === password);
+
             if (authenticatedUser) {
-                sessionStorage.setItem('loggedIn', 'true');
+                // Redirect to the user's homepage if authenticated
+                sessionStorage.setItem('loggedIn', 'true'); // Optional, in case you want to track the login session
                 window.location.href = authenticatedUser.homepage;
             } else {
+                // Display an error if authentication fails
                 alert('Invalid username or password');
             }
-        ;
+        });
     </script>
 </body>
 </html>
+
