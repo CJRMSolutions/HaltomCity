@@ -105,20 +105,13 @@
             { username: 'OvilioG', password: 'Ovilio#2024', homepage: 'HaltomCity.html' }    
         ];
 
-        document.getElementById('login-form').addEventListener('submit', function(event) {
-            event.preventDefault(); 
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            
-            const authenticatedUser = users.find(user => user.username === username && user.password === password);
-
             if (authenticatedUser) {
                 sessionStorage.setItem('loggedIn', 'true');
                 window.location.href = authenticatedUser.homepage;
             } else {
                 alert('Invalid username or password');
             }
-        });
+        ;
     </script>
 </body>
 </html>
