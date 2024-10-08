@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haltom City</title>
+    <title>Haltom City Portal</title>
     <link rel="icon" href="iris.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f7fa;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -17,78 +19,100 @@
         }
 
         .login-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 350px;
             text-align: center;
         }
 
         h2 {
-            margin-bottom: 20px;
-            color: #575655;
+            margin-bottom: 30px;
+            color: #333;
+            font-weight: 700;
         }
 
         .input-group {
-            margin-bottom: 15px;
+            margin-bottom: 25px;
             text-align: left;
+            position: relative;
         }
 
         label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            color: #555;
+            font-weight: 500;
         }
 
         input[type="text"], input[type="password"] {
             width: 100%;
-            padding: 6px; 
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 12px; 
+            padding: 12px 40px 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
             box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #4a90e2;
+            outline: none;
+        }
+
+        .input-group i {
+            position: absolute;
+            right: 15px;
+            top: 40px;
+            color: #888;
         }
 
         button {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             border: none;
-            border-radius: 4px;
-            background-color: #e57f25;
+            border-radius: 6px;
+            background-color: #4a90e2;
             color: white;
             font-size: 16px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
         button:hover {
-            background-color: #4cae4c;
+            background-color: #3a7bc8;
         }
 
         .image-container {
-            margin-bottom: 10px; 
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
         }
 
         .image-container img {
-            max-width: 70%;
+            max-width: 80%;
             height: auto;
-            border-radius: 5px; 
+            border-radius: 8px;
         }
     </style>
 </head>
 <body>
     <div class="login-container">
         <div class="image-container">
-            <img src="NOLogo.png" alt="IRIS Hub">
+            <img src="NOLogo.png" alt="Haltom City Portal">
         </div>
-        <h2>IRIS Hub</h2>
+        <h2>Haltom City Portal</h2>
         <form id="login-form">
             <div class="input-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required>
+                <i class="fas fa-user"></i>
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
+                <i class="fas fa-lock"></i>
             </div>
             <button type="submit">Login</button>
         </form>
@@ -99,9 +123,8 @@
             { username: 'Brodrick', password: 'Brodrick2024', homepage: 'HaltomCity.html' } ,
             { username: 'Jenna', password: 'Jenna2024', homepage: 'HaltomCity.html' } ,
             { username: 'Jolanta', password: 'Jolanta2024', homepage: 'HaltomCity.html' } ,
-            { username: 'Cindy', password: 'Cindy2025', homepage: 'HaltomCity.html' } ,
             { username: 'Mayra', password: 'Mayra2024', homepage: 'HaltomCity.html' } , 
-            { username: 'Cedric', password: 'Cedric2024', homepage: 'HaltomCity.html' } ,
+            { username: 'MattOnko', password: 'MattOnko2024', homepage: 'HaltomCity.html' } ,
             { username: 'Edward', password: 'Edward2024', homepage: 'HaltomCity.html' } ,
             { username: 'KisselG', password: 'Spring#2024', homepage: 'HaltomCity.html' },
             { username: 'OvilioG', password: 'Ovilio#2024', homepage: 'HaltomCity.html' }    
@@ -124,5 +147,3 @@
     </script>
 </body>
 </html>
-
-
